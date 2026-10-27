@@ -143,6 +143,68 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
+/* ---------- Inhaltsseiten (Intro, Projects …) ---------- */
+
+.page {
+  padding: 2.45vw 1.6vw 6vw 8.3vw;
+}
+.page section + section { margin-top: 3.3vw; }
+
+.kicker {
+  font-size: 1.45vw;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.who {
+  margin-top: 0.35vw;
+  font-size: 1.24vw;
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: -0.07em;
+}
+
+.worlds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.85vw;
+  margin-top: 2.1vw;
+}
+.worlds img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 383 / 482;
+  object-fit: cover;
+}
+
+.statement {
+  margin-top: 3.4vw;
+  font-size: 3.45vw;
+  line-height: 1.4;
+  letter-spacing: -0.055em;
+}
+.statement strong { font-weight: 700; letter-spacing: -0.06em; }
+
+.principles-title { margin-top: 4vw; }
+.principles { list-style: none; margin-top: 1.5vw; }
+.principles li + li { margin-top: 2.6vw; }
+.principles h4 {
+  font-size: 4.6vw;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+.principles p {
+  margin-top: 0.8vw;
+  font-size: 1.75vw;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.045em;
+  max-width: 62vw;
+}
+
 /* ---------- Platzhalter für Unterseiten ---------- */
 
 .soon {
@@ -219,4 +281,28 @@ img { display: block; max-width: 100%; }
   .home-text .tags { margin-top: 3vw; font-size: 3vw; }
 
   .soon { height: 60vh; font-size: 16px; }
+
+  .page { padding: 8vw 4vw 12vw; }
+  .page section + section { margin-top: 12vw; }
+  .kicker { font-size: 4.6vw; }
+  .who { margin-top: 2.5vw; font-size: 4.6vw; }
+  .worlds {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 70vw;
+    gap: 3vw;
+    margin: 4vw -4vw 0;
+    padding: 0 4vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .worlds img { scroll-snap-align: start; }
+  .statement { margin-top: 5vw; font-size: 8.4vw; line-height: 1.25; }
+  .principles-title { margin-top: 10vw; }
+  .principles { margin-top: 4vw; }
+  .principles li + li { margin-top: 8vw; }
+  .principles h4 { font-size: 10vw; }
+  .principles p { margin-top: 2vw; font-size: 4.6vw; max-width: none; }
+
 }
