@@ -369,11 +369,12 @@ img { display: block; max-width: 100%; }
 .drawer-toggle {
   position: fixed;
   z-index: 15;
-  left: calc(var(--sidebar) + 2.6vw);
+  left: calc(var(--sidebar) + 0.6vw);
   bottom: 1.6vw;
   display: flex;
   align-items: center;
-  gap: 0.6vw;
+  gap: 0.5vw;
+  padding: 0;
   border: 0;
   background: none;
   color: var(--ink);
@@ -383,7 +384,7 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   cursor: pointer;
 }
-.drawer-toggle.lower { text-transform: none; font-size: 1.75vw; letter-spacing: -0.04em; }
+.drawer-toggle.lower { text-transform: none; letter-spacing: -0.045em; }
 .drawer-toggle .plus {
   display: inline-block;
   color: var(--orange);
@@ -400,11 +401,12 @@ img { display: block; max-width: 100%; }
   z-index: 20;
   top: 0;
   bottom: 0;
-  left: calc(var(--sidebar) + 8.75vw);
+  /* beginnt knapp vor dem Text, damit vom Inhalt dahinter nichts hervorschaut */
+  left: calc(var(--sidebar) + 7.9vw);
   right: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 3.3vw 1.6vw 6vw 1.75vw;
+  padding: 3.3vw 1.6vw 6vw 2.15vw;
   background: var(--paper);
   box-shadow: -1px 0 0 #eee, -1.2vw 0 2.4vw rgba(0, 0, 0, 0.06);
   transform: translateX(105%);
