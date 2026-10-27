@@ -296,6 +296,59 @@ img { display: block; max-width: 100%; }
 .cv-download { display: inline-block; font-weight: 700; }
 .cv-download:hover { color: var(--orange); }
 
+/* ---------- Contact ---------- */
+
+.contact {
+  position: relative;
+  height: 100vh;
+  min-height: 40vw;
+  overflow: hidden;
+}
+.contact-links {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 12.55vw) auto;
+  padding: 0.75vw 0 0 7.8vw;
+  font-size: 0.83vw;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.contact-links a:hover { color: var(--orange); }
+
+.contact-question {
+  position: absolute;
+  top: 46.7%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 38vw;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 700;
+  font-size: 1.28vw;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.contact-big {
+  position: absolute;
+  left: 13.3vw;
+  bottom: -1.4vw;
+  font-size: 12.55vw;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+  color: var(--blue);
+  transition: color 0.2s;
+}
+.contact-big:hover { color: var(--orange); }
+
+.note-link {
+  display: inline-block;
+  margin-top: 0.3vw;
+  font-size: 0.9vw;
+  letter-spacing: -0.02em;
+}
+.note-link:hover { color: var(--orange); }
+
 /* ---------- Platzhalter für Unterseiten ---------- */
 
 .soon {
@@ -405,5 +458,18 @@ img { display: block; max-width: 100%; }
   .cv { margin-top: 6vw; font-size: 4.4vw; line-height: 1.5; letter-spacing: -0.03em; }
   .cv-block + .cv-block { margin-top: 9vw; }
   .cv-entry + .cv-entry { margin-top: 5vw; }
+
+  .contact { height: calc(100svh - 70px - 62vw); min-height: 120vw; }
+  .contact-links {
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    gap: 3vw 8vw;
+    padding: 8vw 4vw 0;
+    font-size: 3.4vw;
+  }
+  .contact-links li:last-child { grid-column: 1 / -1; }
+  .contact-question { width: 86vw; font-size: 4.4vw; line-height: 1.6; }
+  .contact-big { left: 2.5vw; bottom: -3vw; font-size: 21vw; }
+  .note-link { margin-top: 1vw; font-size: 3.6vw; }
 
 }
