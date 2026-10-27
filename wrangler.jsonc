@@ -3,6 +3,9 @@
   "name": "portfolio-lucia-elena-manthey",
   "main": "src/index.js",
   "compatibility_date": "2026-10-01",
+  // Seite unter <name>.<subdomain>.workers.dev erreichbar machen
+  "workers_dev": true,
+  "preview_urls": true,
   "observability": { "enabled": true },
   "assets": {
     "directory": "./public",
