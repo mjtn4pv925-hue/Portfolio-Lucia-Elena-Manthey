@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucia Elena Manthey – Portfolio</title>
+  <meta name="description" content="Portfolio von Lucia Elena Manthey">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="/">LEM</a>
+    <nav>
+      <a href="#about">Über mich</a>
+      <a href="#projects">Projekte</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Lucia Elena Manthey</h1>
+      <p class="lead">Hier steht ein kurzer Satz darüber, was du machst und wofür du stehst.</p>
+      <a class="button" href="#projects">Projekte ansehen</a>
+    </section>
+
+    <section id="about">
+      <h2>Über mich</h2>
+      <p>Erzähl hier in ein paar Sätzen von dir: deinem Hintergrund, deinen Schwerpunkten und was dich antreibt.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projekte</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Projekt Eins</h3>
+          <p>Kurze Beschreibung des Projekts, deiner Rolle und des Ergebnisses.</p>
+        </article>
+        <article class="card">
+          <h3>Projekt Zwei</h3>
+          <p>Kurze Beschreibung des Projekts, deiner Rolle und des Ergebnisses.</p>
+        </article>
+        <article class="card">
+          <h3>Projekt Drei</h3>
+          <p>Kurze Beschreibung des Projekts, deiner Rolle und des Ergebnisses.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <form id="contact-form">
+        <label>Name <input name="name" required maxlength="200"></label>
+        <label>E-Mail <input name="email" type="email" required maxlength="200"></label>
+        <label>Nachricht <textarea name="message" rows="5" required maxlength="5000"></textarea></label>
+        <button class="button" type="submit">Senden</button>
+        <p id="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Lucia Elena Manthey</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.textContent = "Wird gesendet …";
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const data = await res.json();
+        status.textContent = data.ok ? data.message : data.error;
+        if (data.ok) form.reset();
+      } catch {
+        status.textContent = "Senden fehlgeschlagen. Bitte später erneut versuchen.";
+      }
+    });
+  </script>
+</body>
+</html>

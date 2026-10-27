@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-lucia-elena-manthey",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // API-Routen gehen zuerst an den Worker, alles andere wird direkt als Datei ausgeliefert
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "OWNER_NAME": "Lucia Elena Manthey"
+  }
+}
