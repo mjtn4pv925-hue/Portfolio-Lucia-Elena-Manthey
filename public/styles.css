@@ -146,7 +146,7 @@ img { display: block; max-width: 100%; }
 /* ---------- Inhaltsseiten (Intro, Projects …) ---------- */
 
 .page {
-  padding: 2.45vw 1.6vw 6vw 8.3vw;
+  padding: 2.45vw 1.6vw 9vw 8.3vw;
 }
 .page section + section { margin-top: 3.3vw; }
 
@@ -218,7 +218,7 @@ img { display: block; max-width: 100%; }
 }
 .statement strong { font-weight: 700; letter-spacing: -0.06em; }
 
-.principles-title { margin-top: 4vw; }
+.principles-title { margin-top: 3.5vw; }
 .principles { list-style: none; margin-top: 1.5vw; }
 .principles li + li { margin-top: 2.6vw; }
 .principles h4 {
@@ -289,29 +289,11 @@ img { display: block; max-width: 100%; }
 .slider-btn.prev { left: 0.8vw; }
 .slider-btn.next { right: 0.8vw; }
 
-.plus-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4vw;
-  margin-top: 4vw;
-  font-size: 1.75vw;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-.plus-link .plus {
-  color: var(--orange);
-  font-size: 2.6vw;
-  font-weight: 400;
-  line-height: 1;
-}
-.plus-link:hover { color: var(--orange); }
 
 .cv {
-  margin-top: 3vw;
   font-size: 1.5vw;
   line-height: 1.55;
   letter-spacing: -0.05em;
-  scroll-margin-top: 2vw;
 }
 .cv-block + .cv-block { margin-top: 3.3vw; }
 .cv-entry + .cv-entry { margin-top: 1.7vw; }
@@ -379,6 +361,61 @@ img { display: block; max-width: 100%; }
   letter-spacing: -0.02em;
 }
 .note-link:hover { color: var(--orange); }
+
+/* ---------- Aufklappbare Panels (+ HOW I THINK, + experiences) ---------- */
+
+.drawer-toggle {
+  position: fixed;
+  z-index: 15;
+  left: calc(var(--sidebar) + 2.6vw);
+  bottom: 1.6vw;
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: 700 1.3vw/1.05 var(--sans);
+  letter-spacing: -0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.drawer-toggle.lower { text-transform: none; font-size: 1.75vw; letter-spacing: -0.04em; }
+.drawer-toggle .plus {
+  display: inline-block;
+  color: var(--orange);
+  font-size: 4.2vw;
+  font-weight: 400;
+  line-height: 0.8;
+  transition: transform 0.4s ease;
+}
+.drawer-toggle:hover .drawer-label { color: var(--orange); }
+.drawer-toggle[aria-expanded="true"] .plus { transform: rotate(45deg); font-weight: 700; }
+
+.drawer {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--sidebar) + 8.75vw);
+  right: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 3.3vw 1.6vw 6vw 1.75vw;
+  background: var(--paper);
+  box-shadow: -1px 0 0 #eee, -1.2vw 0 2.4vw rgba(0, 0, 0, 0.06);
+  transform: translateX(105%);
+  visibility: hidden;
+  transition: transform 0.5s ease, visibility 0s 0.5s;
+}
+.drawer.open {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.5s ease;
+}
+.drawer .statement:first-of-type { margin-top: 2.6vw; }
+.drawer:focus { outline: none; }
 
 /* ---------- Platzhalter für Unterseiten ---------- */
 
@@ -493,9 +530,25 @@ img { display: block; max-width: 100%; }
   .slider { margin: 4vw -4vw 0; }
   .slide-placeholder { font-size: 4.6vw; }
   .slider-btn { font-size: 26px; }
-  .plus-link { margin-top: 10vw; font-size: 6vw; gap: 2vw; }
-  .plus-link .plus { font-size: 9vw; }
-  .cv { margin-top: 6vw; font-size: 4.4vw; line-height: 1.5; letter-spacing: -0.03em; }
+  .drawer-toggle {
+    left: 4vw;
+    bottom: calc(62px + env(safe-area-inset-bottom));
+    z-index: 25;
+    gap: 2vw;
+    padding: 2vw 3vw 2vw 1vw;
+    background: var(--paper);
+    font-size: 4.2vw;
+  }
+  .drawer-toggle.lower { font-size: 5vw; }
+  .drawer-toggle .plus { font-size: 11vw; }
+  .drawer {
+    left: 0;
+    bottom: calc(52px + env(safe-area-inset-bottom));
+    padding: 8vw 4vw 30vw;
+    box-shadow: none;
+  }
+  .drawer .statement:first-of-type { margin-top: 5vw; }
+  .cv { font-size: 4.4vw; line-height: 1.5; letter-spacing: -0.03em; }
   .cv-block + .cv-block { margin-top: 9vw; }
   .cv-entry + .cv-entry { margin-top: 5vw; }
 
