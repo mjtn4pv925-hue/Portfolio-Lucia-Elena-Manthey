@@ -1,87 +1,39 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lucia Elena Manthey – Portfolio</title>
-  <meta name="description" content="Portfolio von Lucia Elena Manthey">
+  <meta name="description" content="I turn complex topics into experiences people remember. Sustainability communication, activations & events.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Gelasio&display=swap">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="/">LEM</a>
-    <nav>
-      <a href="#about">Über mich</a>
-      <a href="#projects">Projekte</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
-  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2 class="name"><a href="/"><span>Lucia</span><span>Elena</span><span>Manthey</span></a></h2>
+      <nav class="nav">
+        <a href="/intro"><span class="label">INTRO</span><span class="sub">Who I am<br>&amp; how I think</span></a>
+        <a href="/projects"><span class="label">PROJECTS</span><span class="sub">What I do<br>&amp; how</span></a>
+        <a href="/contact"><span class="label">CONTACT</span><span class="sub">Lets create<br>together</span></a>
+      </nav>
+    </aside>
 
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Portfolio</p>
-      <h1>Lucia Elena Manthey</h1>
-      <p class="lead">Hier steht ein kurzer Satz darüber, was du machst und wofür du stehst.</p>
-      <a class="button" href="#projects">Projekte ansehen</a>
-    </section>
-
-    <section id="about">
-      <h2>Über mich</h2>
-      <p>Erzähl hier in ein paar Sätzen von dir: deinem Hintergrund, deinen Schwerpunkten und was dich antreibt.</p>
-    </section>
-
-    <section id="projects">
-      <h2>Projekte</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Projekt Eins</h3>
-          <p>Kurze Beschreibung des Projekts, deiner Rolle und des Ergebnisses.</p>
-        </article>
-        <article class="card">
-          <h3>Projekt Zwei</h3>
-          <p>Kurze Beschreibung des Projekts, deiner Rolle und des Ergebnisses.</p>
-        </article>
-        <article class="card">
-          <h3>Projekt Drei</h3>
-          <p>Kurze Beschreibung des Projekts, deiner Rolle und des Ergebnisses.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Kontakt</h2>
-      <form id="contact-form">
-        <label>Name <input name="name" required maxlength="200"></label>
-        <label>E-Mail <input name="email" type="email" required maxlength="200"></label>
-        <label>Nachricht <textarea name="message" rows="5" required maxlength="5000"></textarea></label>
-        <button class="button" type="submit">Senden</button>
-        <p id="form-status" role="status"></p>
-      </form>
-    </section>
-  </main>
-
-  <footer>© <span id="year"></span> Lucia Elena Manthey</footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      status.textContent = "Wird gesendet …";
-      try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(Object.fromEntries(new FormData(form))),
-        });
-        const data = await res.json();
-        status.textContent = data.ok ? data.message : data.error;
-        if (data.ok) form.reset();
-      } catch {
-        status.textContent = "Senden fehlgeschlagen. Bitte später erneut versuchen.";
-      }
-    });
-  </script>
+    <main class="content">
+      <section class="home">
+        <h1 class="home-title"><span class="front">PORTFOLIO</span><span class="back">PORTFOLIO</span></h1>
+        <figure class="home-photo">
+          <!-- Kinderfoto folgt: public/assets/lucia-kind.jpg -->
+          <div class="photo-placeholder"></div>
+          <figcaption class="home-text">
+            <p>I turn complex topics into experiences people remember.</p>
+            <p class="tags">Sustainability communication, activations &amp; events</p>
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
