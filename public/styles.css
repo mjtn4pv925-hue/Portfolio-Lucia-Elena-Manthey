@@ -119,8 +119,7 @@ img { display: block; max-width: 100%; }
   left: 36.85vw;
   width: 24.3vw;
 }
-.home-photo img,
-.photo-placeholder {
+.home-photo img {
   width: 100%;
   height: auto;
   aspect-ratio: 486 / 512;
@@ -261,16 +260,13 @@ img { display: block; max-width: 100%; }
 .slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  aspect-ratio: 1257 / 709;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-}
-.slide-placeholder {
-  display: grid;
-  place-items: center;
-  background: #a7a552;
-  color: #3d2a26;
-  font-size: 1.4vw;
-  font-weight: 700;
+  /* feine Kante, damit weiße Folien sich vom Hintergrund abheben */
+  outline: 1px solid #e4e4e4;
+  outline-offset: -1px;
 }
 .slider-btn {
   position: absolute;
@@ -534,7 +530,6 @@ img { display: block; max-width: 100%; }
 
   .note { margin-top: 1vw; font-size: 3vw; }
   .slider { margin: 4vw -4vw 0; }
-  .slide-placeholder { font-size: 4.6vw; }
   .slider-btn { font-size: 26px; }
   .drawer-toggle {
     left: 4vw;
