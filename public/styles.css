@@ -287,6 +287,186 @@ img { display: block; max-width: 100%; }
 .slider-btn.prev { left: 0.8vw; }
 .slider-btn.next { right: 0.8vw; }
 
+/* Vorschaubild auf der Projects-Seite, verlinkt auf die Case-Seite */
+.teaser {
+  display: block;
+  margin: 1.6vw -1.6vw 0 0;
+}
+.teaser img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  outline: 1px solid #e4e4e4;
+  outline-offset: -1px;
+  transition: opacity 0.2s;
+}
+.teaser:hover img { opacity: 0.85; }
+
+/* ---------- Case-Seiten (/projects/…) ---------- */
+
+.back-link { margin: 0 0 2.4vw; }
+
+.case-title {
+  font-size: 4.6vw;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+.case-lede {
+  margin-top: 0.8vw;
+  font-size: 1.75vw;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.045em;
+  max-width: 62vw;
+}
+.case-cover {
+  margin-top: 2.1vw;
+  width: 100%;
+  height: auto;
+  outline: 1px solid #e4e4e4;
+  outline-offset: -1px;
+}
+.case figcaption {
+  margin-top: 0.6vw;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.86vw;
+  letter-spacing: -0.02em;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14vw, 1fr));
+  gap: 1.6vw;
+  margin-top: 2.6vw;
+  padding: 1.3vw 0;
+  border-top: max(1px, var(--line)) solid var(--ink);
+  border-bottom: max(1px, var(--line)) solid var(--ink);
+}
+.facts dt {
+  font-size: 0.83vw;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.facts dd {
+  margin-top: 0.4vw;
+  font-size: 1.05vw;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+.case section { margin-top: 4.2vw; }
+.case-text p,
+.case-text > ul li {
+  font-size: 1.5vw;
+  line-height: 1.55;
+  letter-spacing: -0.05em;
+  max-width: 52vw;
+}
+.case-text .kicker + p,
+.case-text .kicker + ul { margin-top: 1.3vw; }
+.case-text p + p { margin-top: 1.1vw; }
+.case-text ul { list-style: none; }
+.case-text > ul li + li { margin-top: 1vw; }
+.case-text > ul li::before { content: "• "; }
+
+.duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.85vw;
+  margin-top: 2.1vw;
+}
+.duo-card {
+  padding: 1.6vw;
+  border: max(1px, var(--line)) solid var(--ink);
+}
+.duo-card h3 {
+  font-size: 2.2vw;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  color: var(--orange);
+}
+.duo-card .duo-sub {
+  margin-top: 0.4vw;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.95vw;
+  letter-spacing: -0.02em;
+}
+.duo-card ul { margin-top: 1.3vw; }
+.duo-card li {
+  font-size: 1.2vw;
+  line-height: 1.45;
+  letter-spacing: -0.04em;
+}
+.duo-card li + li { margin-top: 0.7vw; }
+.duo-card li::before { content: "• "; color: var(--orange); }
+
+.insights {
+  list-style: none;
+  counter-reset: insight;
+  margin-top: 1.5vw;
+}
+.insights li { counter-increment: insight; }
+.insights li + li { margin-top: 2.2vw; }
+.insights h3 {
+  font-size: 2.6vw;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+}
+.insights h3::before {
+  content: counter(insight) " ";
+  color: var(--orange);
+}
+.insights p { margin-top: 0.5vw; font-weight: 700; letter-spacing: -0.045em; }
+
+.figures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.85vw;
+  margin-top: 2.1vw;
+}
+.figures.stacked { grid-template-columns: 1fr; max-width: 62vw; }
+.figures.small { max-width: 36vw; }
+.figures img,
+.case figure.wide img {
+  width: 100%;
+  height: auto;
+  outline: 1px solid #e4e4e4;
+  outline-offset: -1px;
+}
+.figures a:hover img { opacity: 0.85; }
+.case figure.wide { margin-top: 3vw; }
+
+.case-quote { margin-top: 3.3vw; }
+.case-quote p {
+  font-size: 3.45vw;
+  line-height: 1.3;
+  letter-spacing: -0.055em;
+  max-width: none;
+}
+.case-quote cite {
+  display: block;
+  margin-top: 1vw;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.95vw;
+  font-style: normal;
+}
+
+.case-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+  margin-top: 6vw;
+  padding-top: 1.3vw;
+  border-top: max(1px, var(--line)) solid var(--ink);
+  font-size: 1.3vw;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.case-next a:hover { color: var(--orange); }
 
 .cv {
   font-size: 1.5vw;
@@ -530,6 +710,43 @@ img { display: block; max-width: 100%; }
 
   .note { margin-top: 1vw; font-size: 3vw; }
   .slider { margin: 4vw -4vw 0; }
+  .teaser { margin: 4vw -4vw 0; }
+
+  .back-link { margin-bottom: 6vw; }
+  .case-title { font-size: 10vw; }
+  .case-lede { margin-top: 2vw; font-size: 4.6vw; max-width: none; }
+  .case-cover { margin-top: 5vw; }
+  .case figcaption { margin-top: 1.5vw; font-size: 2.9vw; }
+  .facts { grid-template-columns: 1fr; gap: 4vw; margin-top: 7vw; padding: 4vw 0; }
+  .facts dt { font-size: 3vw; }
+  .facts dd { margin-top: 1vw; font-size: 4vw; }
+  .case section { margin-top: 12vw; }
+  .case-text p,
+  .case-text > ul li { font-size: 4.4vw; line-height: 1.5; letter-spacing: -0.03em; max-width: none; }
+  .case-text .kicker + p,
+  .case-text .kicker + ul { margin-top: 4vw; }
+  .case-text p + p { margin-top: 3vw; }
+  .case-text > ul li + li { margin-top: 3vw; }
+  .duo { grid-template-columns: 1fr; gap: 4vw; margin-top: 5vw; }
+  .duo-card { padding: 5vw 4vw; }
+  .duo-card h3 { font-size: 7vw; }
+  .duo-card .duo-sub { margin-top: 1vw; font-size: 3.4vw; }
+  .duo-card ul { margin-top: 3vw; }
+  .duo-card li { font-size: 4.2vw; }
+  .duo-card li + li { margin-top: 2vw; }
+  .insights { margin-top: 4vw; }
+  .insights li + li { margin-top: 7vw; }
+  .insights h3 { font-size: 7.5vw; }
+  .insights p { margin-top: 1.5vw; }
+  .figures,
+  .figures.stacked,
+  .figures.small { grid-template-columns: 1fr; gap: 4vw; margin-top: 5vw; max-width: none; }
+  .figures.small { grid-template-columns: 1fr 1fr; }
+  .case figure.wide { margin: 6vw -4vw 0; }
+  .case-quote { margin-top: 8vw; }
+  .case-quote p { font-size: 7.5vw; }
+  .case-quote cite { margin-top: 2vw; font-size: 3.4vw; }
+  .case-next { flex-direction: column; gap: 4vw; margin-top: 14vw; padding-top: 4vw; font-size: 4.4vw; }
   .slider-btn { font-size: 26px; }
   .drawer-toggle {
     left: 4vw;
