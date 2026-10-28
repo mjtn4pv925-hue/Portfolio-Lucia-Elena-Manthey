@@ -16,5 +16,11 @@
   },
   "vars": {
     "OWNER_NAME": "Lucia Elena Manthey"
+  },
+  // Einstellungen für Vorschau-Builds von Branches (npx wrangler preview)
+  "previews": {
+    "vars": {
+      "OWNER_NAME": "Lucia Elena Manthey"
+    }
   }
 }
